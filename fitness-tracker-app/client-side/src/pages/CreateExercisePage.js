@@ -2,20 +2,21 @@ import React from 'react';      // import React when creaeting component
 import Navigation from '../components/Navigation';
 import { useState } from 'react';
 import { useHistory } from 'react-router-dom';
-
+;
 function CreateExercisePage() {
 
     const history = useHistory();
 
     // 5 parameters --> create 5 useState functions
     const [name, setName] = useState('');
-    const [reps, setReps] = useState(0);
-    const [weight, setWeight] = useState(0);
+    const [sets, setSets] = useState('');
+    const [reps, setReps] = useState('');
+    const [weight, setWeight] = useState('');
     const [unit, setUnit] = useState('lbs');
     const [date, setDate] = useState('');
 
     const addExercise = async () => {
-        const newExercise = { name, reps, weight, unit, date };
+        const newExercise = { name, sets, reps, weight, unit, date };
         const response = await fetch('/exercises', {
             method: 'POST',
             body: JSON.stringify(newExercise),
@@ -37,19 +38,25 @@ function CreateExercisePage() {
             <input
                 className='form'
                 type="text"
-                placeholder="Enter exercise name"
+                placeholder="exercise name"
                 value={name}
                 onChange={e => setName(e.target.value)} />
             <input
                 className='form'
                 type="number"
-                placeholder="Enter number of reps"
+                placeholder="number of sets"
+                value={sets}
+                onChange={e => setSets(e.target.valueAsNumber)} />
+            <input
+                className='form'
+                type="number"
+                placeholder="number of reps"
                 value={reps}
                 onChange={e => setReps(e.target.valueAsNumber)} />
             <input
                 className='form'
                 type="number"
-                palceholder="Enter weight"
+                placeholder="Enter weight"
                 value={weight}
                 onChange={e => setWeight(e.target.valueAsNumber)} />
             <select value={unit} name="unit" id="unit-select" onChange={e => setUnit(e.target.value)} >
@@ -59,10 +66,10 @@ function CreateExercisePage() {
             <input
                 className='form'
                 type="text"
-                placeholder="Enter date: MM-DD-YY"
+                placeholder="date: MM-DD-YY"
                 value={date}
                 onChange={e => setDate(e.target.value)} />
-            <button className='form' onClick={addExercise}>Submit Exercise</button>
+            <button className='submit-button' onClick={addExercise}>Submit Exercise</button>
             <Navigation />
 
         </div>

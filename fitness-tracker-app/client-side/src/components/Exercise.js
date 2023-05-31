@@ -7,12 +7,13 @@ function Exercise({ exercise, onDelete, onEdit }) {
     return (
         <tr>
             <td>{exercise.name}</td>
+            <td>{exercise.sets}</td>
             <td>{exercise.reps}</td>
             <td>{exercise.weight}</td>
             <td>{exercise.unit}</td>
             <td>{exercise.date}</td>
-            <td><BsEraserFill onClick={() => onEdit(exercise)} /></td>
-            <td><TbTrash onClick={() => onDelete(exercise._id)} /></td>
+            <td><BsEraserFill onClick={() => onEdit(exercise)} style={{cursor:'pointer'}}/></td>
+            <td><TbTrash onClick={() => onDelete(exercise._id)} style={{cursor:'pointer'}}/></td>
         </tr>
     );
 }

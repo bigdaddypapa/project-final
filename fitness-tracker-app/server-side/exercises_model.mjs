@@ -20,6 +20,7 @@ db.once("open", () => {
  */
 const exerciseSchema = mongoose.Schema({
     name: { type: String, required: true },
+    sets: { type: String, required: true },
     reps: { type: Number, required: true },
     weight: { type: Number, required: true },
     unit: { type: String, required: true },
@@ -33,9 +34,9 @@ const Exercise = mongoose.model("Exercise", exerciseSchema);
 
 // ************ Skeleton for CRUD operations ************
 
-const createExercise = async (name, reps, weight, unit, date) => {
+const createExercise = async (name, sets,reps, weight, unit, date) => {
     // create an instance of Exercise 
-    const exercise = new Exercise( {name: name, reps: reps, weight: weight, unit: unit, date: date} ); 
+    const exercise = new Exercise( {name: name, sets: sets, reps: reps, weight: weight, unit: unit, date: date} ); 
 
     // .save() is asynchonous --> returns a promise 
     // .save() inserts a new document 
@@ -50,8 +51,8 @@ const findExercise = async (filter) => {
     return query.exec()
 }
 
-const replaceExercise = async (_id, name, reps, weight, unit, date) => {
-    const result = await Exercise.replaceOne({_id: _id}, {name: name, reps: reps, weight: weight, unit: unit, date: date});
+const replaceExercise = async (_id, name, sets, reps, weight, unit, date) => {
+    const result = await Exercise.replaceOne({_id: _id}, {name: name, sets: sets, reps: reps, weight: weight, unit: unit, date: date});
     return result.modifiedCount
 }
 

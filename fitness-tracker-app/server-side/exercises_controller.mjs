@@ -16,14 +16,16 @@ app.use(express.json());
 function isDateValid(date) {
     // Test using a regular expression. 
     // To learn about regular expressions see Chapter 6 of the text book
-    const format = /^\d\d-\d\d-\d\d$/;
-    return format.test(date);
+    const format = {year: "2-digit",
+    month: "2-digit",
+    day: "2-digit"}
+    return (new Date(date)).toLocaleDateString("en-US", format);
 }
 
 // - exclude app.use(express.urlencoded) b/c we aren't sending POST request as form
 // - exclude express.static('public') b/c we arent serving any static files
 
-function validate(req, res, name, reps, weight, unit, date) {
+function validate(req, res, name, sets, reps, weight, unit, date) {
     // === undefined for empty property
     if (name === undefined || reps === undefined || weight === undefined || unit === undefined || date === undefined) {
         res.status(400).json( { Error: 'Invalid request' } )
@@ -35,6 +37,10 @@ function validate(req, res, name, reps, weight, unit, date) {
         return 0
     }
     else if (reps <= 0 || typeof(reps) !== "number") {
+        res.status(400).json( { Error: 'Invalid request' } )
+        return 0
+    }
+    else if (reps <= 0 || typeof(sets) !== "number") {
         res.status(400).json( { Error: 'Invalid request' } )
         return 0
     }
@@ -59,11 +65,11 @@ function validate(req, res, name, reps, weight, unit, date) {
  * CREATE a new exercise with name, reps, weight, unit and date
  */
 app.post('/exercises', (req, res) => {
-    if (validate(req, res, req.body.name, req.body.reps, req.body.weight, req.body.unit, req.body.date) === 0) {
+    if (validate(req, res, req.body.name, req.body.sets, req.body.reps, req.body.weight, req.body.unit, req.body.date) === 0) {
         return
     }
 
-    exercises.createExercise(req.body.name, req.body.reps, req.body.weight, req.body.unit, req.body.date)
+    exercises.createExercise(req.body.name, req.body.sets, req.body.reps, req.body.weight, req.body.unit, req.body.date)
         .then(exercise => {
             res.status(201).json(exercise)
             return
@@ -127,16 +133,16 @@ app.put('/exercises/:_id', (req, res) => {
         .then(exercise => { 
             if (exercise !== null) {
                 // sceond, validate request parameters 
-                if (validate(req, res, req.body.name, req.body.reps, req.body.weight, req.body.unit, req.body.date) === 0) {
+                if (validate(req, res, req.body.name, req.body.sets, req.body.reps, req.body.weight, req.body.unit, req.body.date) === 0) {
                     return
                 }
 
                 // after both checks, perform update CRUD operation
-                exercises.replaceExercise(req.params._id, req.body.name, req.body.reps, req.body.weight, req.body.unit, req.body.date)
+                exercises.replaceExercise(req.params._id, req.body.name, req.body.sets, req.body.reps, req.body.weight, req.body.unit, req.body.date)
                 .then(numUpdated => {
                     // if all 5 parameters exist AND numUpdated === 1 --> then found 
                     if (numUpdated === 1) {
-                        res.json({ _id: req.params._id, name: req.body.name, reps: req.body.reps, weight: req.body.weight, unit: req.body.unit, date: req.body.date })
+                        res.json({ _id: req.params._id, name: req.body.name, sets: req.body.sets, reps: req.body.reps, weight: req.body.weight, unit: req.body.unit, date: req.body.date })
                     } else {
                         res.status(404).json({ Error: 'Not found' });
                         return

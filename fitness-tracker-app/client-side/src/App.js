@@ -38,7 +38,7 @@ function App() {
       </header>
 
       <footer>
-        <AiOutlineCopyrightCircle />2022 Eugene Song
+        <AiOutlineCopyrightCircle />2023 Papa Ndoye
       </footer>
     </div >
   );
