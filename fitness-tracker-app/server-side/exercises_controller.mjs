@@ -14,16 +14,13 @@ app.use(express.json());
 * Return true if the date format is MM-DD-YY where MM, DD and YY are 2 digit integers
 */
 function isDateValid(date) {
-    // Test using a regular expression. 
-    // To learn about regular expressions see Chapter 6 of the text book
+   
     const format = {year: "2-digit",
     month: "2-digit",
     day: "2-digit"}
     return (new Date(date)).toLocaleDateString("en-US", format);
 }
 
-// - exclude app.use(express.urlencoded) b/c we aren't sending POST request as form
-// - exclude express.static('public') b/c we arent serving any static files
 
 function validate(req, res, name, sets, reps, weight, unit, date) {
     // === undefined for empty property
@@ -86,7 +83,7 @@ app.post('/exercises', (req, res) => {
 
 /**
  * RETRIEVE ALL or no exercises
- * All movies are returned. If empty --> response will be empty array 
+ 
  */
 app.get('/exercises', (req, res) => {
     // filter used for empty array 
