@@ -25,5 +25,9 @@ Now that we got our backend together we switch to the front end where we will st
 We will style using Css, make sure all our components are rendering on our localhost before attaching our backend api to our frontend.
 
 All in all, this app was the most difficult project I've done just yet! But, doing this helped me understand a lot on how backend works. Even though i feel like  i have long way to go, everything makes a little bit more sense.
+
 ### Live site
+
 I have used render to deploy my app. You can have live access to the application through this link here:
+
+https://workoutrack-app.onrender.com
