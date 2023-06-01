@@ -9,13 +9,13 @@ const WorkoutForm = () => {
   const [reps, setReps] = useState('')
   const [error, setError] = useState(null)
   const [emptyFields, setEmptyFields] = useState([])
-
+  const baseURL = 'https://workout-app-backend-server.onrender.com/api/workouts'
   const handleSubmit = async (e) => {
     e.preventDefault()
 
     const workout = {title, load, reps}
     
-    const response = await fetch('/api/workouts', {
+    const response = await fetch(baseURL, {
       method: 'POST',
       body: JSON.stringify(workout),
       headers: {

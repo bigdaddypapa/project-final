@@ -5,12 +5,13 @@ import { useWorkoutsContext } from "../hooks/useWorkoutsContext"
 import WorkoutDetails from "../components/WorkoutDetails"
 import WorkoutForm from "../components/WorkoutForm"
 
+const baseURL = 'https://workout-app-backend-server.onrender.com/api/workouts'
 const Home = () => {
   const { workouts, dispatch } = useWorkoutsContext()
-
+  
   useEffect(() => {
     const fetchWorkouts = async () => {
-      const response = await fetch('/api/workouts')
+      const response = await fetch (baseURL)
       const json = await response.json()
 
       if (response.ok) {
