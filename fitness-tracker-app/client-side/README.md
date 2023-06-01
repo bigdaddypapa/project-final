@@ -1,70 +1,42 @@
-# Getting Started with Create React App
+# Workoutrack
+A MERN-stack fitness tracker app.
+### App Functions and building process
+A user-friendly MERN-stack application that enables individuals to easily track and manage their daily workout routines. 
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Features include tracking resistance exercises, viewing of workout history, and ability to edit and delete exercises.
 
-## Available Scripts
+I am inspired by the homework we did in class "Todos" where we follow the CRUD process to build the Application.
 
-In the project directory, you can run:
+Since we are building a Mern fullstack Application we will need to set up both our front end and back end. In my case i put them both together 
+thinking it would be easier but... definitely wasn't.
 
-### `npm start`
+Using Vs Code in this project, we begin by installing all our dependencies in our backend such as express mongoose... 
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+We will Defines a Schema which will represents the properties of a collection in MongoDB and then Compile a model from the schema.
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+We CREATE a new exercise with name, reps and weight. In case of an error, send back status code 400 in case of an error.
 
-### `npm test`
+A better approach will be to examine the error and send an error status code corresponding to the error.
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+Obviously every excercise that we create will have it's own id. We will use that id to update or delete the excercice if needed.
+ 
+Now that we got our backend together we switch to the front end where we will start by using create-react-app, delete some of the files we are not intending on using and add new components for our projects. 
 
-### `npm run build`
+We will style using Css, make sure all our components are rendering on our localhost before attaching our backend api to our frontend.
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+All in all, this app was the most difficult project I've done just yet! But, doing this helped me understand a lot on how backend works. Even though i feel like  i have long way to go, everything makes a little bit more sense.
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+### Technologies Used
+###### JAVASCRIPT
+###### HTML
+###### CSS
+###### EXPRESS
+###### REACT
+###### MONGODB
+###### RENDER
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+### Live site
 
-### `npm run eject`
+I have used render to deploy my app. You can have live access to the application through this link here:
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
-
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+https://workoutrack-app.onrender.com
