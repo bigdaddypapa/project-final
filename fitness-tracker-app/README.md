@@ -26,6 +26,15 @@ We will style using Css, make sure all our components are rendering on our local
 
 All in all, this app was the most difficult project I've done just yet! But, doing this helped me understand a lot on how backend works. Even though i feel like  i have long way to go, everything makes a little bit more sense.
 
+### Technologies Used
+###### JAVASCRIPT
+###### HTML
+###### CSS
+###### EXPRESS
+###### REACT
+###### MONGODB
+###### RENDER
+
 ### Live site
 
 I have used render to deploy my app. You can have live access to the application through this link here:
