@@ -5,7 +5,7 @@ import { useWorkoutsContext } from "../hooks/useWorkoutsContext"
 import WorkoutDetails from "../components/WorkoutDetails"
 import WorkoutForm from "../components/WorkoutForm"
 
-const baseURL = 'https://workout-app-backend-server.onrender.com/api/workouts'
+const baseURL = 'https://workout-app-backend-server.onrender.com/api/workouts/'
 const Home = () => {
   const { workouts, dispatch } = useWorkoutsContext()
   

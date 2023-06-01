@@ -9,7 +9,7 @@ const WorkoutForm = () => {
   const [reps, setReps] = useState('')
   const [error, setError] = useState(null)
   const [emptyFields, setEmptyFields] = useState([])
-  const baseURL = 'https://workout-app-backend-server.onrender.com/api/workouts'
+  const baseURL = 'https://workout-app-backend-server.onrender.com/api/workouts/'
   const handleSubmit = async (e) => {
     e.preventDefault()
 
