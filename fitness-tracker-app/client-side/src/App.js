@@ -1,47 +1,27 @@
-import './App.css';
-import React from 'react';
-import { BrowserRouter as Router, Route } from 'react-router-dom';
-import { AiOutlineCopyrightCircle } from 'react-icons/ai'
+import { BrowserRouter, Routes, Route } from 'react-router-dom'
 
-import MainHomePage from './pages/MainHomePage';
-import CreateExercisePage from './pages/CreateExercisePage';
-import EditExercisePage from './pages/EditExercisePage';
-import { useState } from 'react';
-
+// pages & components
+import Home from './pages/Home'
+import Navbar from './components/Navbar'
 
 function App() {
 
-  const [exerciseToEdit, setExerciseToEdit] = useState();
-
   return (
     <div className="App">
-      <header>
-        <h1 className='title'>Your Personal Workout Log</h1>
-        <p className='subtitle'>Enter your exercise and specify each field.</p>
-
-        <Router>
-          <div className="App-router">
-            <Route path="/" exact>
-              <MainHomePage setExerciseToEdit={setExerciseToEdit} />
-            </Route>
-
-            <Route path="/add-exercise">
-              <CreateExercisePage />
-            </Route>
-
-            <Route path="/edit-exercise">
-              <EditExercisePage exerciseToEdit={exerciseToEdit} />
-            </Route>
-          </div>
-        </Router>
-
-      </header>
-
-      <footer>
-        <AiOutlineCopyrightCircle />2023 Papa Ndoye
-      </footer>
-    </div >
+      <BrowserRouter>
+        <Navbar />
+        <div className="pages">
+          <Routes>
+            <Route 
+              path="/" 
+              element={<Home />} 
+            />
+          </Routes>
+        </div>
+      </BrowserRouter>
+    </div>
   );
 }
 
 export default App;
+
