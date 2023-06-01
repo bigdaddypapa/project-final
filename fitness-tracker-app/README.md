@@ -14,7 +14,7 @@ Using Vs Code in this project, we begin by installing all our dependencies in ou
 
 We will Defines a Schema which will represents the properties of a collection in MongoDB and then Compile a model from the schema.
 
-We CREATE a new exercise with name, sets, reps, weight, unit and date. In case of an error, send back status code 400 in case of an error.
+We CREATE a new exercise with name, reps and weight. In case of an error, send back status code 400 in case of an error.
 
 A better approach will be to examine the error and send an error status code corresponding to the error.
 
