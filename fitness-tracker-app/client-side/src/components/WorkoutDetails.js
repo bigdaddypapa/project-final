@@ -2,7 +2,7 @@ import { useWorkoutsContext } from '../hooks/useWorkoutsContext'
 
 // date fns
 import formatDistanceToNow from 'date-fns/formatDistanceToNow'
-const baseURL = 'https://workout-app-backend-server.onrender.com/api/workouts'
+const baseURL = 'https://workout-app-backend-server.onrender.com/api/workouts/'
 const WorkoutDetails = ({ workout }) => {
   const { dispatch } = useWorkoutsContext()
 
